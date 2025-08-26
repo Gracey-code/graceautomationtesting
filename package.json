@@ -1,0 +1,22 @@
+{
+  "name": "graceautomationtesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gracey-code/graceautomationtesting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gracey-code/graceautomationtesting/issues"
+  },
+  "homepage": "https://github.com/Gracey-code/graceautomationtesting#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0"
+  }
+}
