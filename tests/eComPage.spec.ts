@@ -1,47 +1,23 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import { eCom } from '../PageObject/eCom';
 
-export class LoginPage {
-  readonly page: Page;
-  readonly emailInput: Locator;
-  readonly passwordInput: Locator;
-  readonly loginButton: Locator;
+test.describe('Ecom Login Flow', () => {
 
-  constructor(page: Page) {
-    this.page = page;
-    this.emailInput = page.locator('#userEmail');
-    this.passwordInput = page.locator('#userPassword');
-    this.loginButton = page.locator('input[type="submit"]');
-  }
+  test('Successful Login', async ({ page }) => {
+    const Ecom = new eCom(page);
 
-  async navigateToLoginPage() {
-    await this.page.goto('https://rahulshettyacademy.com/client/#/auth/login');
-  }
+    // Navigate to Login
+    await page.goto(Ecom.eComurl);
 
-  async verifyLoginPageIsVisible() {
-    await expect(this.emailInput).toBeVisible();
-  }
+    // Fill login details
+    await Ecom.userEmail.fill('testecom@mailinator.com');
+    await Ecom.userPassword.fill('abcdE123');
 
-  async fillEmail(email: string) {
-    await this.emailInput.fill(email);
-  }
+    // Click login
+    await Ecom.eComlogin.click();
 
-  async fillPassword(password: string) {
-    await this.passwordInput.fill(password);
-  }
+    // Add to cart
+    await Ecom.addTocartSuccess.click();
+  });
 
-  async clickLogin() {
-    await this.loginButton.click();
-  }
-
-  async login(email: string, password: string) {
-    await this.fillEmail(email);
-    await this.fillPassword(password);
-    await this.clickLogin();
-  }
-
-  async performFullLogin(email: string = 'testecom@mailinator.com', password: string = 'abcdE123') {
-    await this.navigateToLoginPage();
-    await this.verifyLoginPageIsVisible();
-    await this.login(email, password);
-  }
-}
+});

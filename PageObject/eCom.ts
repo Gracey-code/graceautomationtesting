@@ -18,16 +18,4 @@ export class eCom {
     this.button = page.locator('[type="submit"]');
     this.addTocartSuccess = page.locator('#toast-container');
   }
-
-  // Helper method to navigate to the login page
-  async navigateToLogin() {
-    await this.page.goto(this.eComurl);
-  }
-
-  // Helper method for login
-  async loginWithCredentials(email: string, password: string) {
-    await this.userEmail.fill(email);
-    await this.userPassword.fill(password);
-    await this.eComlogin.click();
-  }
 }
