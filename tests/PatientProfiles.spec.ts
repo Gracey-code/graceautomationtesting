@@ -29,16 +29,4 @@ test('Navigate Login Page', async ({ page }) => {
    await page.locator("#submit-fab-button").click();
    await expect(page.locator('div[class="go3958317564"]')).toHaveText('Record updated successfully')
 
-  // Select Visits
-  //const pVisits = page.locator('nav-item-visits');
-  //await expect(pVisits).toBeVisible();
-  //await pVisits.click();
-
-   // Select visits
-   //await page.locator('[data-testid="EditIcon"]').nth(0).click();
-   //await page.locator("#submit-fab-button").click();
-   //await expect(page.locator('div[class="go685806154"]')).toHaveText('Record updated successfully')
-
-   //
-
 })
